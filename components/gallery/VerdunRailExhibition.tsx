@@ -317,7 +317,7 @@ export function VerdunRailExhibition() {
         open={activeModal === "dossier"}
         onOpenChange={(open) => setActiveModal(open ? "dossier" : null)}
       >
-        <DialogContent className="max-h-[92svh] max-w-5xl overflow-y-auto border-border bg-card p-4 sm:p-6 sm:max-w-5xl">
+        <DialogContent className="max-h-[92svh] w-[calc(100vw-1.5rem)] max-w-5xl overflow-y-auto overflow-x-hidden border-border bg-card p-4 sm:p-6 sm:max-w-5xl">
           <DialogHeader className="pb-2 border-b border-border/60">
             <DialogTitle className="font-display text-2xl tracking-wide text-foreground">
               Вердуны гол тоо баримтууд

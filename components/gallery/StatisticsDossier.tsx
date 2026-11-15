@@ -218,10 +218,10 @@ export function StatisticsDossierTabs({
   }, [activeTab]);
 
   return (
-    <div className="w-full space-y-5">
+    <div className="w-full min-w-0 max-w-full space-y-5 overflow-hidden">
       {/* Top 4 Hero Highlight KPI Cards - Optimized for Mobile 2x2 & Desktop 4x1 */}
-      <div className="grid grid-cols-2 gap-2.5 sm:grid-cols-4 sm:gap-3">
-        <div className="flex flex-col justify-between rounded-xl border border-brass/35 bg-card/90 p-3 sm:p-4 shadow-sm">
+      <div className="grid w-full min-w-0 grid-cols-2 gap-2.5 sm:grid-cols-4 sm:gap-3">
+        <div className="flex flex-col justify-between rounded-xl border border-brass/35 bg-card/90 p-3 sm:p-4 shadow-sm min-w-0">
           <div>
             <div className="flex items-center gap-1.5 text-[11px] text-muted-foreground sm:text-xs">
               <Calendar className="size-3 text-brass shrink-0 sm:size-3.5" />
@@ -236,7 +236,7 @@ export function StatisticsDossierTabs({
           </p>
         </div>
 
-        <div className="flex flex-col justify-between rounded-xl border border-brass/35 bg-card/90 p-3 sm:p-4 shadow-sm">
+        <div className="flex flex-col justify-between rounded-xl border border-brass/35 bg-card/90 p-3 sm:p-4 shadow-sm min-w-0">
           <div>
             <div className="flex items-center gap-1.5 text-[11px] text-muted-foreground sm:text-xs">
               <HeartCrack className="size-3 text-brass shrink-0 sm:size-3.5" />
@@ -251,7 +251,7 @@ export function StatisticsDossierTabs({
           </p>
         </div>
 
-        <div className="flex flex-col justify-between rounded-xl border border-brass/35 bg-card/90 p-3 sm:p-4 shadow-sm">
+        <div className="flex flex-col justify-between rounded-xl border border-brass/35 bg-card/90 p-3 sm:p-4 shadow-sm min-w-0">
           <div>
             <div className="flex items-center gap-1.5 text-[11px] text-muted-foreground sm:text-xs">
               <Bomb className="size-3 text-brass shrink-0 sm:size-3.5" />
@@ -266,7 +266,7 @@ export function StatisticsDossierTabs({
           </p>
         </div>
 
-        <div className="flex flex-col justify-between rounded-xl border border-brass/35 bg-card/90 p-3 sm:p-4 shadow-sm">
+        <div className="flex flex-col justify-between rounded-xl border border-brass/35 bg-card/90 p-3 sm:p-4 shadow-sm min-w-0">
           <div>
             <div className="flex items-center gap-1.5 text-[11px] text-muted-foreground sm:text-xs">
               <MapPin className="size-3 text-brass shrink-0 sm:size-3.5" />
@@ -283,9 +283,9 @@ export function StatisticsDossierTabs({
       </div>
 
       {/* Clean Category Tabs: Swipeable on Mobile, Grid on Desktop */}
-      <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-        <div className="w-full overflow-x-auto pb-1 [-webkit-overflow-scrolling:touch] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-          <TabsList className="inline-flex h-auto w-auto min-w-full items-center justify-start gap-1 bg-muted/60 p-1 rounded-xl sm:grid sm:grid-cols-4 sm:w-full">
+      <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full min-w-0 max-w-full">
+        <div className="w-full min-w-0 max-w-full overflow-x-auto pb-1.5 [-webkit-overflow-scrolling:touch] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+          <TabsList className="inline-flex h-auto w-max items-center justify-start gap-1 bg-muted/60 p-1 rounded-xl sm:grid sm:grid-cols-4 sm:w-full">
             <TabsTrigger
               value="all"
               className="flex items-center gap-1.5 whitespace-nowrap px-3 py-2 text-xs font-medium rounded-lg data-[state=active]:bg-background data-[state=active]:text-brass data-[state=active]:shadow-sm"
@@ -322,8 +322,8 @@ export function StatisticsDossierTabs({
         </div>
 
         {/* Tab Contents: Responsive 1-col on mobile, 2-col on desktop */}
-        <div className="mt-4">
-          <div className="grid gap-3 sm:gap-4 sm:grid-cols-2">
+        <div className="mt-4 w-full min-w-0">
+          <div className="grid w-full min-w-0 gap-3 sm:gap-4 sm:grid-cols-2">
             {filteredStats.map((item) => (
               <Card
                 key={item.id}
