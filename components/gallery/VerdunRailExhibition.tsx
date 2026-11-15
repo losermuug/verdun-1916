@@ -317,13 +317,13 @@ export function VerdunRailExhibition() {
         open={activeModal === "dossier"}
         onOpenChange={(open) => setActiveModal(open ? "dossier" : null)}
       >
-        <DialogContent className="max-h-[90svh] max-w-5xl overflow-y-auto border-border bg-card p-6 sm:max-w-5xl">
-          <DialogHeader>
-            <DialogTitle className="font-display text-2xl">
-              Тоо баримт, 9 тосгон ба 1984 / 2016 архив
+        <DialogContent className="max-h-[92svh] max-w-5xl overflow-y-auto border-border bg-card p-4 sm:p-6 sm:max-w-5xl">
+          <DialogHeader className="pb-2 border-b border-border/60">
+            <DialogTitle className="font-display text-2xl tracking-wide text-foreground">
+              Вердуны гол тоо баримтууд
             </DialogTitle>
-            <DialogDescription>
-              Судалгааны баталгаажсан тоон үзүүлэлтүүд ба эх сурвалжийн харьцуулалт.
+            <DialogDescription className="text-xs sm:text-sm text-muted-foreground">
+              1916 оны түүхэн тулалдааны хүчний харьцаа, зэвсэглэл, хохирол ба ложистикийн гол хэмжүүрүүд.
             </DialogDescription>
           </DialogHeader>
           <StatisticsDossierTabs key={dossierTab} defaultTab={dossierTab} />

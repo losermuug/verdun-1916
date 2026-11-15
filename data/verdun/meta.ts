@@ -1,7 +1,7 @@
 import type { ExhibitionMeta } from "@/types/exhibition";
 
 export const EXHIBITION_META: ExhibitionMeta = {
-  primaryTitle: "Вердуны там: Энхийн үнэ цэнэ",
+  primaryTitle: "Вердуны махны машин",
   subtitleVariants: [
     "Ариун замаас Европын эвлэрэл рүү: Вердун 1916",
     "Эх орны төлөө амь үрэгдсэн газар: Вердуны ой санамж",

@@ -8,10 +8,10 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 
 <!-- END:nextjs-agent-rules -->
 
-# Project Agent & Architecture Rules — «Вердуны там: Энхийн үнэ цэнэ»
+# Project Agent & Architecture Rules — «Вердуны махны машин»
 
 ## 1. Project Identity & Purpose
-- **Exhibition Title:** «Вердуны там: Энхийн үнэ цэнэ» (Дэлхийн I дайны дижитал музейн үзэсгэлэн)
+- **Exhibition Title:** «Вердуны махны машин» (Дэлхийн I дайны дижитал музейн үзэсгэлэн)
 - **Primary Source of Truth:** [`public/Вердуны Тулалдааны Дижитал Үзэсгэлэнгийн Судалгаа.pdf`](public/Вердуны%20Тулалдааны%20Дижитал%20Үзэсгэлэнгийн%20Судалгаа.pdf)
 - **Language:** Mongolian (Cyrillic) UI and curatorial copy, preserving authentic French/German historical terms and proper names (e.g., *La Voie Sacrée*, *Citadelle souterraine*, *Villages détruits*, *Zone Rouge*, *Ossuaire de Douaumont*, *Tranchée des Baïonnettes*, *Trommelfeuer*, *«On ne passe pas!»*).
 
