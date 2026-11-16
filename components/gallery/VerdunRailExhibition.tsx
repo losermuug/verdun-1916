@@ -2,6 +2,7 @@
 
 import {
   BookOpen,
+  GraduationCap,
   Landmark,
   MapPin,
   Menu,
@@ -28,10 +29,11 @@ import {
 } from "@/data/verdun";
 import { VerdunAmbientPlayer } from "@/lib/ambientMusic";
 import { AmbientMusicControl } from "./AmbientMusicControl";
+import { ExhibitionConclusionDialog } from "./ExhibitionConclusionDialog";
 import { SlideMapStage } from "./SlideMapStage";
 import { StatisticsDossierTabs } from "./StatisticsDossier";
 
-type ModalKind = "map" | "dossier" | "sources" | null;
+type ModalKind = "map" | "dossier" | "sources" | "conclusion" | null;
 type DossierTab = "stats" | "voie" | "villages" | "archives";
 
 export function VerdunRailExhibition() {
@@ -146,6 +148,15 @@ export function VerdunRailExhibition() {
 
             <button
               type="button"
+              onClick={() => setActiveModal("conclusion")}
+              className="flex items-center gap-2 rounded-lg px-3.5 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-card hover:text-foreground"
+            >
+              <GraduationCap className="size-4 text-brass" />
+              <span>Дүгнэлт</span>
+            </button>
+
+            <button
+              type="button"
               onClick={() => openDossier("stats")}
               className="flex items-center gap-2 rounded-lg px-3.5 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-card hover:text-foreground"
             >
@@ -219,6 +230,18 @@ export function VerdunRailExhibition() {
               >
                 <MapPin className="size-4 text-brass" />
                 <span>Газрын зураг (3D Maps)</span>
+              </button>
+
+              <button
+                type="button"
+                onClick={() => {
+                  setActiveModal("conclusion");
+                  setMobileMenuOpen(false);
+                }}
+                className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-foreground/90 transition-colors hover:bg-card hover:text-brass"
+              >
+                <GraduationCap className="size-4 text-brass" />
+                <span>Дүгнэлт</span>
               </button>
 
               <button
@@ -368,6 +391,11 @@ export function VerdunRailExhibition() {
           </ol>
         </DialogContent>
       </Dialog>
+      {/* Shadcn Dialog: Conclusion & Historical Lessons */}
+      <ExhibitionConclusionDialog
+        open={activeModal === "conclusion"}
+        onOpenChange={(open) => setActiveModal(open ? "conclusion" : null)}
+      />
     </div>
   );
 }
