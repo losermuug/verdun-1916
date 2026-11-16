@@ -326,10 +326,10 @@ export function VerdunRailExhibition() {
         <DialogContent className="max-h-[92svh] max-w-6xl overflow-y-auto border-border bg-card p-6 sm:max-w-6xl">
           <DialogHeader>
             <DialogTitle className="font-display text-2xl">
-              Вердуны тулалдааны 14 байршил (GPS)
+              Вердуны тулалдааны түүхэн байршлууд (3D Газрын зураг)
             </DialogTitle>
             <DialogDescription>
-              Цайз, бэхлэлт, сүйрсэн тосгод, дурсгалын газруудын түүхэн солбицол.
+              Цайз бэхлэлт, өндөрлөг толгод, «Ариун зам», сүйрсэн тосгод ба дурсгалын газрууд.
             </DialogDescription>
           </DialogHeader>
           <SlideMapStage key={mapTargetId} initialSelectedId={mapTargetId} />

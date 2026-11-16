@@ -39,14 +39,14 @@ export function ExhibitionConclusionDialog({
         <DialogHeader className="border-b border-border/70 pb-3">
           <div className="flex items-center gap-2">
             <Badge variant="outline" className="border-brass/40 text-brass text-xs">
-              Түүхийн судалгаа & Сургамж
+              Түүхийн судалгаа
             </Badge>
             <span className="font-mono text-xs text-muted-foreground">
               Вердун 1916 · 4 гол асуулт
             </span>
           </div>
           <DialogTitle className="mt-1 font-display text-2xl sm:text-3xl font-bold tracking-tight text-foreground">
-            Дүгнэлт ба Түүхийн сургамж
+            Дүгнэлт
           </DialogTitle>
           <DialogDescription className="text-xs sm:text-sm text-muted-foreground">
             Вердуны дайнд гүйцэтгэсэн үүрэг, тулалдааны явц, энгийн иргэдийн зовлон ба орчин үеийн энх тайвны үнэ цэнэ.
@@ -85,12 +85,6 @@ export function ExhibitionConclusionDialog({
                 <p className="text-xs sm:text-[13.5px] leading-relaxed text-foreground/90 text-pretty">
                   {item.answer}
                 </p>
-
-                {/* Key Takeaway Callout */}
-                <div className="flex items-start gap-2 rounded-lg border border-brass/25 bg-brass/[0.07] px-3 py-2 text-xs">
-                  <span className="font-semibold text-brass shrink-0">Гол сургамж:</span>
-                  <span className="text-foreground/85 leading-snug">{item.keyTakeaway}</span>
-                </div>
               </div>
             );
           })}
