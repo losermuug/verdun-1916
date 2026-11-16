@@ -9,3 +9,4 @@ export { ARCHIVAL_ASSETS } from "./assets";
 export { CITATION_REFERENCES } from "./citations";
 export { VERDUN_RAIL_EXHIBITS, type VerdunRailExhibit } from "./railItems";
 export { CURATED_EXHIBITS, type CuratedExhibit } from "./curatedExhibits";
+export * from "./voieSacree";

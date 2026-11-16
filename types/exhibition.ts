@@ -7,7 +7,8 @@ export type LocationCategory =
   | "memorial"
   | "cemetery"
   | "peace"
-  | "zone_rouge";
+  | "zone_rouge"
+  | "logistics";
 
 export type VillageStatusType =
   | "uninhabited"

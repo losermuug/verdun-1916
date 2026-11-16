@@ -39,6 +39,10 @@ export interface PictureRailItem {
   eyewitnessQuote?: { text: string; author: string };
   mapCoordinateId?: string;
   onOpenMap?: (coordId: string) => void;
+  // Archival and picture info
+  imageName?: string;
+  imageAlt?: string;
+  archiveSource?: string;
 }
 
 export interface PictureRailGalleryLabels {
@@ -1037,18 +1041,99 @@ function FrameBack({ item, shape, unit }: { item: PictureRailItem; shape: Shape;
             </g>
           ))}
         </svg>
-        <div data-back-label className="absolute left-1/2 -translate-x-1/2 rounded-[2px] text-left" style={{ bottom: ch * 0.14, width: clamp(cw * 0.66, 120, 300), padding: `${font * 0.8}px ${font}px`, fontSize: font, lineHeight: 1.35, background: PAPER, color: INK, boxShadow: "0 1px 2px color-mix(in oklab, black 25%, transparent), inset 0 0 0 0.5px color-mix(in oklab, black 12%, transparent)" }}>
-          <p className="uppercase" style={{ fontSize: "0.7em", letterSpacing: "0.2em", opacity: 0.6 }}>Gallery label</p>
-          <p className="font-semibold" style={{ fontSize: "1.18em", marginTop: "0.25em" }}>{item.title}</p>
-          {(item.artist || item.year) && <p>{[item.artist, item.year].filter(Boolean).join(", ")}</p>}
-          {item.details && item.details.length > 0 && (
-            <ul className="mt-[0.35em] border-t pt-[0.35em]" style={{ borderColor: "color-mix(in oklab, black 14%, transparent)" }}>
-              {item.details.map((line) => <li key={line}>{line}</li>)}
-            </ul>
+        <div
+          data-back-label
+          className="absolute left-1/2 -translate-x-1/2 rounded-[2px] text-left select-none pointer-events-auto"
+          style={{
+            bottom: ch * 0.10,
+            width: clamp(cw * 0.76, 140, 320),
+            padding: `${font * 0.85}px ${font * 1.0}px`,
+            fontSize: font,
+            lineHeight: 1.35,
+            background: PAPER,
+            color: INK,
+            boxShadow:
+              "0 2px 4px color-mix(in oklab, black 30%, transparent), inset 0 0 0 0.5px color-mix(in oklab, black 16%, transparent)",
+          }}
+        >
+          {/* Header Bar */}
+          <div
+            className="flex items-center justify-between border-b pb-1 mb-1.5"
+            style={{ borderColor: "color-mix(in oklab, black 15%, transparent)" }}
+          >
+            <p
+              className="uppercase font-mono font-bold tracking-wider"
+              style={{ fontSize: "0.68em", letterSpacing: "0.15em", opacity: 0.7 }}
+            >
+              АРХИВЫН БАРИМТ
+            </p>
+            {item.year && (
+              <span className="font-mono text-right" style={{ fontSize: "0.7em", opacity: 0.75 }}>
+                {item.year}
+              </span>
+            )}
+          </div>
+
+          {/* Picture Name (Зургийн нэр) */}
+          <div className="mb-1.5">
+            <p
+              className="uppercase font-mono"
+              style={{ fontSize: "0.62em", letterSpacing: "0.08em", opacity: 0.55 }}
+            >
+              Зургийн нэр:
+            </p>
+            <p
+              className="font-semibold text-pretty"
+              style={{ fontSize: "1.02em", lineHeight: 1.28, marginTop: "0.15em" }}
+            >
+              {item.imageName || item.imageAlt || item.title}
+            </p>
+          </div>
+
+          {/* Archive Source (Эх сурвалж) */}
+          {(item.archiveSource || (item.details && item.details.length > 0)) && (
+            <div
+              className="border-t pt-1.5"
+              style={{ borderColor: "color-mix(in oklab, black 14%, transparent)" }}
+            >
+              <p
+                className="uppercase font-mono"
+                style={{ fontSize: "0.62em", letterSpacing: "0.08em", opacity: 0.55 }}
+              >
+                Эх сурвалж:
+              </p>
+              <p
+                className="font-medium"
+                style={{ fontSize: "0.82em", lineHeight: 1.28, marginTop: "0.15em", opacity: 0.88 }}
+              >
+                {item.archiveSource || item.details?.join(" · ")}
+              </p>
+            </div>
           )}
-          <svg aria-hidden="true" viewBox="0 0 120 26" className="mt-[0.3em] block h-[1.9em] w-auto" fill="none" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M3,18 C10,4 14,4 13,14 C12,22 18,20 22,12 C25,6 27,8 26,15 C30,10 34,9 35,15 C37,21 43,6 48,9 C52,12 47,20 54,17 C60,14 63,7 66,12 C69,18 74,14 79,11 C84,8 88,16 94,13 C100,10 106,11 116,8" />
-          </svg>
+
+          {/* Archival signature seal */}
+          <div
+            className="mt-2 flex items-center justify-between opacity-60"
+            style={{
+              borderTop: "1px dashed color-mix(in oklab, black 18%, transparent)",
+              paddingTop: "0.25rem",
+            }}
+          >
+            <span className="font-mono uppercase" style={{ fontSize: "0.58em", letterSpacing: "0.08em" }}>
+              Verdun 1916 · Archive
+            </span>
+            <svg
+              aria-hidden="true"
+              viewBox="0 0 100 20"
+              className="h-[1.2em] w-auto"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.2"
+              strokeLinecap="round"
+            >
+              <path d="M2,14 C10,3 15,3 14,11 C13,18 19,16 23,10 C26,5 28,7 27,12 C31,8 35,7 36,12 C38,17 44,5 49,7 C53,10 48,16 55,14 C61,11 64,6 67,10 C70,14 75,11 80,9 C85,6 89,13 95,10" />
+            </svg>
+          </div>
         </div>
       </div>
     </div>
@@ -1343,16 +1428,11 @@ function Detail({ uid, item, shape, index, total, labels, reduced, source, onLif
             )}
           </div>
 
-          {/* Title & Subtitle */}
+          {/* Title */}
           <div>
             <h3 id={titleId} className="font-display text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
               {item.title}
             </h3>
-            {item.subtitle && (
-              <p className="mt-1 text-xs sm:text-sm font-medium text-brass/90">
-                {item.subtitle}
-              </p>
-            )}
           </div>
 
           {/* Continuous Narrative Prose (Үргэлжилсэн үгээр нэг бүхэл тайлбар) */}
@@ -1390,6 +1470,7 @@ function Detail({ uid, item, shape, index, total, labels, reduced, source, onLif
               </div>
             </div>
           )}
+
 
           {/* Bottom Actions: Map Link & Prev / Next */}
           <div className="mt-2 space-y-3 border-t border-border/50 pt-3">

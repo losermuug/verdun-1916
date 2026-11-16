@@ -1,6 +1,6 @@
 "use client";
 
-import { ExternalLink, Orbit } from "lucide-react";
+import { ExternalLink, Orbit, Route, Truck } from "lucide-react";
 import { useState } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -22,6 +22,18 @@ const CATEGORY_LABEL: Record<LocationCategory, string> = {
   cemetery: "Оршуулга",
   peace: "Энх тайвны төв",
   zone_rouge: "Улаан бүс",
+  logistics: "Цэргийн ложистик (Ариун зам)",
+};
+
+const COORD_ALIASES: Record<string, string> = {
+  "village-fleury": "fleury-devant-douaumont",
+  "fleury": "fleury-devant-douaumont",
+  "peace-center-episcopal": "centre-mondial-paix",
+  "citadel": "verdun-citadel",
+  "citadelle": "verdun-citadel",
+  "douaumont": "fort-douaumont",
+  "douaumont-ossuary": "ossuaire-douaumont",
+  "voie-sacree": "voie-sacree-terminal",
 };
 
 interface SlideMapStageProps {
@@ -34,8 +46,11 @@ export function SlideMapStage({ initialSelectedId }: SlideMapStageProps = {}) {
   );
   const [panelFilter, setPanelFilter] = useState<"all" | PanelId>("all");
 
+  const normalizedId = COORD_ALIASES[selectedId] ?? selectedId;
   const selected =
-    VERDUN_COORDINATES.find((c) => c.id === selectedId) ?? VERDUN_COORDINATES[0];
+    VERDUN_COORDINATES.find((c) => c.id === normalizedId) ??
+    VERDUN_COORDINATES.find((c) => c.id === selectedId) ??
+    VERDUN_COORDINATES[0];
 
   const filtered =
     panelFilter === "all"
@@ -103,7 +118,7 @@ export function SlideMapStage({ initialSelectedId }: SlideMapStageProps = {}) {
           )}
         </CardHeader>
 
-        <CardContent className="space-y-4">
+        <CardContent className="space-y-3.5">
           <p className="font-mono text-xs text-brass">
             {formatCoordPair(selected.lat, selected.lng)}
           </p>
@@ -112,16 +127,55 @@ export function SlideMapStage({ initialSelectedId }: SlideMapStageProps = {}) {
             {selected.description}
           </p>
 
-          {selected.highlightMetric && (
-            <p className="border-l-2 border-brass/70 pl-3 text-xs text-brass">
-              {selected.highlightMetric}
-            </p>
+          {/* Special Voie Sacrée 57.2 km corridor quick jump */}
+          {selected.id.startsWith("voie-sacree") && (
+            <div className="rounded-lg border border-brass/30 bg-brass/10 p-2.5 text-xs space-y-1.5">
+              <div className="flex items-center gap-1.5 font-bold text-brass">
+                <Truck className="size-3.5" />
+                <span>«Ариун зам»-ын гол цэгүүд:</span>
+              </div>
+              <div className="flex flex-wrap gap-1.5 font-mono text-[11px]">
+                <button
+                  type="button"
+                  onClick={() => setSelectedId("voie-sacree-bar-le-duc")}
+                  className={`rounded px-1.5 py-0.5 border ${selected.id === "voie-sacree-bar-le-duc" ? "border-brass bg-brass text-background font-bold" : "border-brass/30 text-brass hover:bg-brass/15"}`}
+                >
+                  0 км Бар-ле-Дюк
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setSelectedId("voie-sacree-souilly")}
+                  className={`rounded px-1.5 py-0.5 border ${selected.id === "voie-sacree-souilly" ? "border-brass bg-brass text-background font-bold" : "border-brass/30 text-brass hover:bg-brass/15"}`}
+                >
+                  39.8 км Суйи (Штаб)
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setSelectedId("voie-sacree-terminal")}
+                  className={`rounded px-1.5 py-0.5 border ${selected.id === "voie-sacree-terminal" ? "border-brass bg-brass text-background font-bold" : "border-brass/30 text-brass hover:bg-brass/15"}`}
+                >
+                  55.4 км Мулен-Брюле
+                </button>
+              </div>
+            </div>
           )}
 
           <div className="border-t border-border pt-3">
-            <p className="mb-2 text-[11px] uppercase tracking-wider text-muted-foreground">
-              Байршил сонгох ({filtered.length})
-            </p>
+            <div className="mb-2 flex items-center justify-between">
+              <p className="text-[11px] uppercase tracking-wider text-muted-foreground">
+                Байршил сонгох ({filtered.length})
+              </p>
+              <Button
+                type="button"
+                size="xs"
+                variant={selected.id.startsWith("voie-sacree") ? "default" : "outline"}
+                onClick={() => setSelectedId("voie-sacree-terminal")}
+                className="gap-1 text-[11px] border-brass/40 text-brass cursor-pointer"
+              >
+                <Route className="size-3 text-brass" />
+                «Ариун зам»
+              </Button>
+            </div>
             <div className="flex max-h-36 flex-wrap gap-1.5 overflow-y-auto pr-1">
               {filtered.map((loc) => (
                 <Button

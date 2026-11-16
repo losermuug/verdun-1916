@@ -18,6 +18,7 @@ const CATEGORY_COLOR: Record<LocationCategory, string> = {
   cemetery: "#9ba3b0",
   peace: "#739982",
   zone_rouge: "#dc2626",
+  logistics: "#eab308",
 };
 
 interface RingPoint {

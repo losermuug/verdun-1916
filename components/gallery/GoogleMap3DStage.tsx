@@ -2,8 +2,8 @@
 "use client";
 
 import { AltitudeMode, APIProvider, Pin } from "@vis.gl/react-google-maps";
-import { Map3D, MapMode, type Map3DRef, Marker3D } from "@vis.gl/react-google-maps/3d";
-import { Compass, ExternalLink, KeyRound, Orbit } from "lucide-react";
+import { Map3D, MapMode, type Map3DRef, Marker3D, Polyline3D } from "@vis.gl/react-google-maps/3d";
+import { Compass, ExternalLink, KeyRound, Orbit, Route } from "lucide-react";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -14,6 +14,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { VOIE_SACREE_COORDINATES } from "@/data/verdun";
 import type { LocationCategory, MapCoordinate } from "@/types/exhibition";
 
 const ENV_API_KEY =
@@ -28,6 +29,7 @@ const PIN_STYLE: Record<LocationCategory, { bg: string; border: string }> = {
   cemetery: { bg: "#9ba3b0", border: "#555b66" },
   peace: { bg: "#739982", border: "#3d5948" },
   zone_rouge: { bg: "#dc2626", border: "#7f1d1d" },
+  logistics: { bg: "#eab308", border: "#854d0e" },
 };
 
 interface GoogleMap3DStageProps {
@@ -45,25 +47,46 @@ function VerdunGoogle3DViewport({
   const [mapMode, setMapMode] = useState<MapMode>(MapMode.HYBRID);
   const [webglError, setWebglError] = useState<string | null>(null);
 
-  const selected = useMemo(
-    () => locations.find((l) => l.id === selectedId) ?? locations[0],
-    [locations, selectedId],
-  );
+  const selected = useMemo(() => {
+    const norm =
+      selectedId === "village-fleury"
+        ? "fleury-devant-douaumont"
+        : selectedId === "peace-center-episcopal"
+        ? "centre-mondial-paix"
+        : selectedId;
+    return (
+      locations.find((l) => l.id === norm) ??
+      locations.find((l) => l.id === selectedId) ??
+      locations[0]
+    );
+  }, [locations, selectedId]);
 
   // Fly photorealistic 3D camera whenever user selects a new Verdun historical coordinate
   useEffect(() => {
     const ctrl = map3dRef.current;
     if (!ctrl || !selected) return;
     try {
-      ctrl.flyCameraTo({
-        endCamera: {
-          center: { lat: selected.lat, lng: selected.lng, altitude: 120 },
-          range: 1200,
-          tilt: 64,
-          heading: 22,
-        },
-        durationMillis: 1500,
-      });
+      if (selected.id.startsWith("voie-sacree")) {
+        ctrl.flyCameraTo({
+          endCamera: {
+            center: { lat: selected.lat, lng: selected.lng, altitude: 200 },
+            range: 3600,
+            tilt: 56,
+            heading: 18,
+          },
+          durationMillis: 1600,
+        });
+      } else {
+        ctrl.flyCameraTo({
+          endCamera: {
+            center: { lat: selected.lat, lng: selected.lng, altitude: 120 },
+            range: 1200,
+            tilt: 64,
+            heading: 22,
+          },
+          durationMillis: 1500,
+        });
+      }
     } catch {
       // Map3DElement may still be initializing on first mount
     }
@@ -104,8 +127,17 @@ function VerdunGoogle3DViewport({
         }
         style={{ width: "100%", height: "100%", display: "block" }}
       >
+        {/* Render La Voie Sacrée (57.2 km) Arterial 3D Highway */}
+        <Polyline3D
+          coordinates={VOIE_SACREE_COORDINATES}
+          strokeColor="#eab308"
+          strokeWidth={8}
+          altitudeMode={AltitudeMode.RELATIVE_TO_GROUND}
+        />
+
         {locations.map((loc) => {
           const isSelected = loc.id === selected?.id;
+          const isVoieSacree = loc.id.startsWith("voie-sacree");
           const colors = PIN_STYLE[loc.category];
           return (
             <Marker3D
@@ -113,7 +145,7 @@ function VerdunGoogle3DViewport({
               position={{
                 lat: loc.lat,
                 lng: loc.lng,
-                altitude: isSelected ? 45 : 22,
+                altitude: isSelected ? 45 : isVoieSacree ? 35 : 22,
               }}
               altitudeMode={AltitudeMode.RELATIVE_TO_GROUND}
               extruded
@@ -124,7 +156,7 @@ function VerdunGoogle3DViewport({
                 background={isSelected ? "#c59b5f" : colors.bg}
                 borderColor={isSelected ? "#ffffff" : colors.border}
                 glyphColor={isSelected ? "#0d0f11" : "#ffffff"}
-                scale={isSelected ? 1.2 : 0.9}
+                scale={isSelected ? 1.25 : isVoieSacree ? 1.05 : 0.9}
               />
             </Marker3D>
           );
@@ -148,6 +180,26 @@ function VerdunGoogle3DViewport({
           onClick={() => setMapMode(MapMode.SATELLITE)}
         >
           Satellite (Цэвэр 3D)
+        </Button>
+        <Button
+          type="button"
+          size="xs"
+          variant="secondary"
+          onClick={() => {
+            map3dRef.current?.flyCameraTo({
+              endCamera: {
+                center: { lat: 48.97, lng: 5.26, altitude: 1500 },
+                range: 46000,
+                tilt: 50,
+                heading: 18,
+              },
+              durationMillis: 2200,
+            });
+          }}
+          className="border-brass/40 text-brass hover:bg-brass/10 font-semibold"
+        >
+          <Route className="size-3 text-brass" />
+          «Ариун зам» (57.2 км) артери харах
         </Button>
         <Button
           type="button"
