@@ -359,33 +359,34 @@ export function VerdunRailExhibition() {
         open={activeModal === "sources"}
         onOpenChange={(open) => setActiveModal(open ? "sources" : null)}
       >
-        <DialogContent className="max-h-[85svh] max-w-3xl overflow-y-auto border-border bg-card p-6 sm:max-w-3xl">
-          <DialogHeader>
+        <DialogContent className="max-h-[85svh] max-w-3xl overflow-y-auto border-border bg-card p-5 sm:p-6 sm:max-w-3xl">
+          <DialogHeader className="border-b border-border/70 pb-3">
             <DialogTitle className="font-display text-2xl">
-              Эрдэм шинжилгээний эх сурвалж ({CITATION_REFERENCES.length})
+              Ашигласан эх сурвалжууд ({CITATION_REFERENCES.length})
             </DialogTitle>
             <DialogDescription>
-              Судалгаанд ашигласан түүхэн баримт, музейн архив ба академик бүтээлүүд.
+              Үзэсгэлэнд бодитоор ашиглагдсан Францын цэргийн архив, музейн сан ба эрдэм шинжилгээний бүтээлүүд.
             </DialogDescription>
           </DialogHeader>
-          <ol className="space-y-2 text-xs leading-relaxed text-muted-foreground">
-            {CITATION_REFERENCES.map((c) => (
-              <li key={c.id} className="border-b border-border/60 pb-2">
-                <span className="mr-2 font-mono text-brass">[{c.id}]</span>
-                <span className="text-foreground/90">{c.title}</span>
-                {c.url && (
-                  <>
-                    {" — "}
+          <ol className="mt-2 divide-y divide-border/60 text-xs leading-relaxed text-muted-foreground">
+            {CITATION_REFERENCES.map((c, idx) => (
+              <li key={c.id} className="py-2.5 flex items-start gap-2.5">
+                <span className="font-mono text-xs font-bold text-brass shrink-0 mt-0.5">
+                  [{idx + 1}]
+                </span>
+                <div className="flex-1 min-w-0">
+                  <p className="text-foreground/95 font-medium">{c.title}</p>
+                  {c.url && (
                     <a
                       href={c.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-brass underline-offset-2 hover:underline"
+                      className="inline-flex items-center gap-1 text-[11px] text-brass hover:underline break-all mt-0.5"
                     >
-                      {c.url}
+                      <span>{c.url}</span>
                     </a>
-                  </>
-                )}
+                  )}
+                </div>
               </li>
             ))}
           </ol>

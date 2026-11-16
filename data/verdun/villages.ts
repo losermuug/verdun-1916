@@ -92,6 +92,6 @@ export const DESTROYED_VILLAGES: DestroyedVillage[] = [
     occupiedRange: "1916.06.01 – 1916.11.03 (эсвэл 1916.04.02-нд тосгон унасан)",
     currentStatus: "Дахин баригдсан (энгийн суурин)",
     statusType: "rebuilt",
-    sourceRefs: [3, 12, 17, 20],
+    sourceRefs: [12, 17, 19, 20],
   },
 ];

@@ -12,7 +12,7 @@ export const VERDUN_COORDINATES: MapCoordinate[] = [
     description:
       "Мёз голын эрэг дээрх 30 км-ийн цүлхэнгийн төв зангилаа хот. 1916 онд Германы 1,200 гаруй их бууны гал дор энгийн иргэдийг бүрэн нүүлгэн шилжүүлж, 2,305 орон сууц сүйрсэн боловч газар доорх цайзын бат хамгаалалтаар хот дайсанд алдагдаагүй үлдсэн.",
     highlightMetric: "302 өдрийн хамгаалалт · 26 одон медаль",
-    sourceRef: 3,
+    sourceRef: 2,
   },
   {
     id: "verdun-citadel",
@@ -25,7 +25,7 @@ export const VERDUN_COORDINATES: MapCoordinate[] = [
     description:
       "16 метрийн хадан доор байрлах 4 км хонгил бүхий газар доорх хотхон. 6,000 цэрэг хоргодох байр, төв командлал, утасны станц, өдөрт 28,000 талх барих газар бүхий Вердуны хамгаалалтын төв зүрх.",
     highlightMetric: "16 м хадан доор · 6,000 цэрэг · 28,000 талх",
-    sourceRef: 3,
+    sourceRef: 2,
   },
   {
     id: "battle-center",
@@ -52,7 +52,7 @@ export const VERDUN_COORDINATES: MapCoordinate[] = [
       "Сэрэ де Ривьерийн 28 бэхлэлтийн гол тулгуур, 2.5 метрийн төмөр бетон хучилттай Европын хамгийн хүчирхэг цайз. 1916 оны 2-р сарын 25-нд ердөө 56 бэлтгэл цэрэгтэй байхдаа Германы цөөн цэрэгт алдагдсан бөгөөд 10-р сарын 24-нд Манжен генералын 400 мм-ийн төмөр замын их бууны сөрөг дайралтаар чөлөөлөгдсөн.",
     unesco2023: true,
     highlightMetric: "56 цэргээс 400 мм-ийн сөрөг дайралт хүртэл · ЮНЕСКО",
-    sourceRef: 3,
+    sourceRef: 2,
   },
   {
     id: "fort-vaux",
@@ -65,7 +65,7 @@ export const VERDUN_COORDINATES: MapCoordinate[] = [
     description:
       "1916 оны 6 дугаар сарын 1–7-нд командлагч Рейналын 600 гаруй цэрэг усгүй болтлоо 6 хоног баатарлагаар хамгаалсан цайз.",
     highlightMetric: "6 хоногийн бүслэлт",
-    sourceRef: 3,
+    sourceRef: 2,
   },
   {
     id: "mort-homme",
@@ -78,7 +78,7 @@ export const VERDUN_COORDINATES: MapCoordinate[] = [
     description:
       "Мёз голын зүүн (өрнөд) эргийн стратегийн өндөрлөг. 1916 оны 3–5 дугаар сард 304 дүгээр өндөрлөгийн хамт ширүүн тулаан өрнөв.",
     highlightMetric: "3–5 сарын эрэг дамнасан тулаан",
-    sourceRef: 3,
+    sourceRef: 2,
   },
   {
     id: "cote-304",
@@ -91,7 +91,7 @@ export const VERDUN_COORDINATES: MapCoordinate[] = [
     description:
       "Мёз голын баруун эрэг дэх цуст тулааны голомт. 1916 оны 3–5 сард Германы их бууны тасралтгүй бөмбөгдөлтөд өндөрлөгийн шовх орой 304 метрээс 294 метр болтлоо 10 метрээр намссан түүхтэй.",
     highlightMetric: "10 метр намссан (304м → 294м)",
-    sourceRef: 3,
+    sourceRef: 2,
   },
   {
     id: "monument-69e",
@@ -104,7 +104,7 @@ export const VERDUN_COORDINATES: MapCoordinate[] = [
     description:
       "1922 онд босгосон араг ясны баримал бүхий хөшөө («Ils n'ont pas passé» — «Тэд нэвтэрч чадаагүй»).",
     highlightMetric: "1922 оны баримал",
-    sourceRef: 3,
+    sourceRef: 2,
   },
   {
     id: "fleury-devant-douaumont",
@@ -117,7 +117,7 @@ export const VERDUN_COORDINATES: MapCoordinate[] = [
     description:
       "1916 оны зун 16 удаа гараас гарт шилжин газрын хөрснөөс бүрэн арчигдсан тосгон. 1911 онд 422 оршин суугчтай байсан бол өдгөө хүн амгүй (0).",
     highlightMetric: "16 удаа эзлэгдсэн · 0 оршин суугч",
-    sourceRef: 3,
+    sourceRef: 2,
   },
   {
     id: "memorial-verdun",
@@ -130,7 +130,7 @@ export const VERDUN_COORDINATES: MapCoordinate[] = [
     description:
       "Флеригийн төмөр замын өртөөн дээр 1967 онд байгуулагдаж, 2016 онд бүрэн шинэчлэгдсэн музей (1,500 м², 2,000+ үзмэр, жилд 140,000+ зочин).",
     highlightMetric: "1,500 м² · 2,000+ үзмэр",
-    sourceRef: 3,
+    sourceRef: 2,
   },
   {
     id: "ossuaire-douaumont",
@@ -144,7 +144,7 @@ export const VERDUN_COORDINATES: MapCoordinate[] = [
       "1932 онд нээгдсэн 46 м цамхаг, 137 м хонгил бүхий бунхан. Франц, Германы 130,000 үл танигдах цэргийн шарил, 16,142 булш, 1984 ба 2016 оны хоёр улсын эвлэрсэн талбар.",
     unesco2023: true,
     highlightMetric: "130,000 үл танигдах шарил · ЮНЕСКО",
-    sourceRef: 3,
+    sourceRef: 2,
   },
   {
     id: "tranchee-baionnettes",
@@ -158,7 +158,7 @@ export const VERDUN_COORDINATES: MapCoordinate[] = [
       "1920 оны 12-р сарын 8-нд нээгдсэн тулалдааны талбар дахь анхны байнгын хөшөө. 137-р хорооны цэргүүдийн түүхэн дурсгал, ЮНЕСКО-гийн Дэлхийн өв.",
     unesco2023: true,
     highlightMetric: "Анхны байнгын хөшөө (1920)",
-    sourceRef: 3,
+    sourceRef: 2,
   },
   {
     id: "faubourg-pave",
@@ -171,7 +171,7 @@ export const VERDUN_COORDINATES: MapCoordinate[] = [
     description:
       "1920 оны 11-р сарын 10-нд Газар доорх цайзад сонгогдсон Францын «Үл танигдах цэрэг»-ийн үлдсэн 7 нөхрийг оршуулсан газар.",
     highlightMetric: "Үл танигдах цэргийн 7 нөхөр",
-    sourceRef: 3,
+    sourceRef: 2,
   },
   {
     id: "bras-sur-meuse",
@@ -183,7 +183,7 @@ export const VERDUN_COORDINATES: MapCoordinate[] = [
     category: "cemetery",
     description: "Мёз голын хөндийд орших Вердуны секторын үндэсний цэргийн оршуулгын газар.",
     highlightMetric: "Үндэсний цэргийн оршуулга",
-    sourceRef: 3,
+    sourceRef: 2,
   },
   {
     id: "centre-mondial-paix",
@@ -196,7 +196,7 @@ export const VERDUN_COORDINATES: MapCoordinate[] = [
     description:
       "1994 оноос хуучин Хамбын ордонд байрлаж буй энх тайван, эрх чөлөө, хүний эрхийн төв. Франц-Германы харилцаа, орчин үеийн энхийн боловсролын голомт.",
     highlightMetric: "1994 оноос Хамбын ордонд",
-    sourceRef: 3,
+    sourceRef: 2,
   },
   {
     id: "place-a-gaz",
@@ -222,7 +222,7 @@ export const VERDUN_COORDINATES: MapCoordinate[] = [
     description:
       "Бар-ле-Дюкээс Вердун хүрэх 57.2 км авралын замын төгсгөл. Berliet CBA ачааны машинууд цэргүүд болон их бууны сумыг энд буулгаж, цэргүүд шуудуу руу явган маршаар ордог байв.",
     highlightMetric: "14 секунд тутамд 1 машин · 57.2 км артери",
-    sourceRef: 3,
+    sourceRef: 2,
   },
   {
     id: "voie-sacree-souilly",
@@ -235,7 +235,7 @@ export const VERDUN_COORDINATES: MapCoordinate[] = [
     description:
       "Генерал Петен (Mairie de Souilly)-ийн төв штаб. «Нориа» систем болон өдөрт 6,000 машины тасралтгүй хөдөлгөөний зохицуулалтыг эндээс удирдсан.",
     highlightMetric: "Петений төв штаб · Замын удирдлагын төв",
-    sourceRef: 3,
+    sourceRef: 2,
   },
   {
     id: "voie-sacree-bar-le-duc",
@@ -248,6 +248,6 @@ export const VERDUN_COORDINATES: MapCoordinate[] = [
     description:
       "«Ариун зам»-ын 0 км. Францын төмөр замын сүлжээнээс Вердун руу ачаа, бие бүрэлдэхүүнийг шилжүүлэн ачих гол ложистикийн бааз (нийт 3 сая цэрэг, 2 сая тн сум тээвэрлэсэн).",
     highlightMetric: "Ариун замын эхлэл (0 км) · 3 сая цэрэг",
-    sourceRef: 3,
+    sourceRef: 2,
   },
 ];

@@ -7,7 +7,7 @@ export const COMPARATIVE_STATISTICS: ComparativeStatistic[] = [
     museumFigure: "«300 өдөр, 300 шөнө» (уламжлалт нэршил)",
     historianFigure: "1916.02.21 – 1916.12.18 буюу яг 302 хоног (зарим тоймд 303 хоног)",
     methodology: "1916 он өндөр жил (2-р сарын 29-тэй) байсан.",
-    sourceRefs: [3, 4],
+    sourceRefs: [2, 4],
   },
   {
     id: "casualties-1916",
@@ -18,7 +18,7 @@ export const COMPARATIVE_STATISTICS: ComparativeStatistic[] = [
       "714,000 (У. Филпотт, 2014) буюу ~750,000 (Британика); 1914–1918 оны туршид ~1,250,000",
     methodology:
       "302 хоногт хоногт дунджаар 2,318–2,364 хүн хохирсон (1,013 амь үрэгдсэн/сураггүй).",
-    sourceRefs: [1, 2, 3, 7],
+    sourceRefs: [1, 2, 7],
   },
   {
     id: "artillery-shells",
@@ -29,7 +29,7 @@ export const COMPARATIVE_STATISTICS: ComparativeStatistic[] = [
       "Герман дангаараа 23 сая сум (World History); хоёр тал нийт 40–60 сая сум (тойм тооцоо)",
     methodology:
       "40–60 сая сумаар бодвол 302 хоногт хоногт 132,450–198,675 сум буюу минутад 92–138 сум.",
-    sourceRefs: [1, 2, 3, 12],
+    sourceRefs: [1, 2, 12],
   },
   {
     id: "voie-sacree-logistics",
