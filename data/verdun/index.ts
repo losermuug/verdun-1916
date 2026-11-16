@@ -1,13 +1,6 @@
 export { EXHIBITION_META } from "./meta";
-export { EXHIBITION_PANELS } from "./panels";
 export { VERDUN_COORDINATES } from "./coordinates";
-export { VERDUN_TIMELINE_EVENTS } from "./timeline";
-export { DESTROYED_VILLAGES } from "./villages";
-export { COMPARATIVE_STATISTICS, VOIE_SACREE_METRICS } from "./statistics";
-export { AUDIO_GUIDE_SEGMENTS, AUDIO_GUIDE_TOTAL_SECONDS } from "./guide";
-export { ARCHIVAL_ASSETS } from "./assets";
 export { CITATION_REFERENCES } from "./citations";
-export { VERDUN_RAIL_EXHIBITS, type VerdunRailExhibit } from "./railItems";
 export { CURATED_EXHIBITS, type CuratedExhibit } from "./curatedExhibits";
 export * from "./voieSacree";
 export * from "./conclusion";
